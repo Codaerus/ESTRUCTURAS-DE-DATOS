@@ -57,6 +57,9 @@ void borrarElemento(struct Nodo** cabeza, int dato){
         //Es el primer nodo
         *cabeza = temp->siguiente;
     }
+    if(temp->siguiente != NULL){
+        temp->siguiente->anterior = temp->anterior;
+    }
     free(temp);
     
 }
@@ -71,7 +74,7 @@ int main() {
     insertarPrincipio(&cabeza,1);
     //insertarPrincipio(&cabeza,7);
     
-    borrarElemento(&cabeza,5);
+    borrarElemento(&cabeza,30);
     //Recorre hacia adelante
     struct Nodo* actual = cabeza;
     while(actual != NULL){
